@@ -71,24 +71,24 @@ if __name__ == "__main__":
     start_time_single = time.time()
     single_threaded()
     end_time_single = time.time()
-    time_taken_single = end_time_single - start_time_single
-    print(f"処理時間(single-threaded): {time_taken_single} seconds")
+    result_time_single = end_time_single - start_time_single
+    print(f"処理時間(single-threaded): {result_time_single} seconds")
 
     # マルチスレッドでの処理時間計測
     # GIL（同時に複数スレッドがPythonのオブジェクトへアクセスさせない仕組み）の影響でシングルスレッドよりも遅い場合がある
-    # CPUバウンドな処理（CPUリソースを多く消費する処理）の場合は、マルチプロセスの方が高速になる
+    # CPUバウンドな処理（CPUリソースを中心に使用する処理）の場合は、マルチプロセスの方が高速になる
     start_time_multi = time.time()
     multi_threaded()
     end_time_multi = time.time()
-    time_taken_multi = end_time_multi - start_time_multi
-    print(f"処理時間(multi-threaded): {time_taken_multi} seconds")
+    result_time_multi = end_time_multi - start_time_multi
+    print(f"処理時間(multi-threaded): {result_time_multi} seconds")
 
     # マルチプロセスでの処理時間計測
     start_time_mp = time.time()
     multi_process()
     end_time_mp = time.time()
-    time_taken_mp = end_time_mp - start_time_mp
-    print(f"処理時間(multi-process): {time_taken_mp} seconds")
+    result_time_mp = end_time_mp - start_time_mp
+    print(f"処理時間(multi-process): {result_time_mp} seconds")
 
     # ファイルを削除する
     for log_file in log_files:
